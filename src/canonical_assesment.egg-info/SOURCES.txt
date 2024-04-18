@@ -1,0 +1,6 @@
+README.md
+setup.py
+src/canonical_assesment.egg-info/PKG-INFO
+src/canonical_assesment.egg-info/SOURCES.txt
+src/canonical_assesment.egg-info/dependency_links.txt
+src/canonical_assesment.egg-info/top_level.txt
