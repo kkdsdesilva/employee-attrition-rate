@@ -7,3 +7,9 @@ You can install the dependencies by running the following command:
 ```bash
 pip install -r requirements.txt
 
+
+To install this project in editable mode, navigate to the project directory and run the following command:
+
+```bash
+pip install -e .
+
