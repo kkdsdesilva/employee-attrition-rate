@@ -1,11 +1,16 @@
 # script for preprocessing the data
 
 import pandas as pd
+import os
 
 # import the preprocessing functions
 from data.load import load_data
 from data.preprocess import remove_columns, merge_data, impute_missing_values, \
-    encode_target, label_encode, one_hot_encode, ordinal_encode, scale_data
+    encode_target, label_encode, one_hot_encode, ordinal_encode
+
+# root directory
+cur_dir = os.path.dirname(os.path.realpath(__file__))
+root_dir = os.path.join(cur_dir, "..")
 
 
 def main():
@@ -42,10 +47,17 @@ def main():
 
     # label encode for ordinal variables
     ordinal_cols = ['BusinessTravel']
-    order = ['Non-Travel', 'Travel_Rarely', 'Travel_Frequently']
+    order = [['Non-Travel', 'Travel_Rarely', 'Travel_Frequently']]
     data = ordinal_encode(data, ordinal_cols, order)
+
+    # save the data
+    data.to_csv(root_dir + '/data/preprocessed_data/general_data.csv', index=False)
 
 
     # one hot encode for categorical variables
-    one_hot_cols = ['Department', 'DistanceFromHome', 'EducationField', 'Gender', 'JobRole', 'MaritalStatus']
-    data = one_hot_encode(data, one_hot_cols)
+    #one_hot_cols = ['Department', 'EducationField', 'Gender', 'JobRole', 'MaritalStatus']
+    #data = one_hot_encode(data, one_hot_cols)
+
+# main function
+if __name__ == '__main__':
+    main()
