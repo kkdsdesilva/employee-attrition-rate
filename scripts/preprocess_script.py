@@ -5,7 +5,7 @@ import os
 
 # import the preprocessing functions
 from data.load import load_data
-from data.preprocess import remove_columns, merge_data, impute_missing_values, \
+from data.preprocessing import remove_columns, merge_data, impute_missing_values, \
     encode_target, label_encode, one_hot_encode, ordinal_encode
 
 # root directory
