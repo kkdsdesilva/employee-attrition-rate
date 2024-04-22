@@ -2,6 +2,7 @@
 
 # import libraries
 import pandas as pd
+import os
 
 # import user-defined functions
 from data.load import load_data
@@ -11,6 +12,10 @@ from models.decision_tree import train_model
 from models.evaluation import evaluate_model
 from models.cross_validation import cv 
 from models.save import save_model
+
+# root directory
+cur_dir = os.path.dirname(__file__) # current directory
+root_dir = os.path.abspath(os.path.join(cur_dir, '..')) # root directory
 
 # main function
 def main():
@@ -36,7 +41,10 @@ def main():
 
     # print cross-validation results
     print(pd.DataFrame(cv_results))
-    
+
+    # save cross-validation results
+    cv_results_df = pd.DataFrame(cv_results)
+    cv_results_df.to_csv(root_dir+'/metrics/cv_results.csv', index=False)
 
 # run the main function
 if __name__ == '__main__':

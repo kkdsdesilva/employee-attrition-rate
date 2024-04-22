@@ -54,10 +54,6 @@ def main():
     data.to_csv(root_dir + '/data/preprocessed_data/general_data.csv', index=False)
 
 
-    # one hot encode for categorical variables
-    #one_hot_cols = ['Department', 'EducationField', 'Gender', 'JobRole', 'MaritalStatus']
-    #data = one_hot_encode(data, one_hot_cols)
-
 # main function
 if __name__ == '__main__':
     main()

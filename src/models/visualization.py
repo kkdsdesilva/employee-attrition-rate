@@ -1,9 +1,12 @@
 # visualization functions
 
 # import libraries
+import pandas as pd
+import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_curve
+from sklearn.metrics import ConfusionMatrixDisplay, PrecisionRecallDisplay
 
 # function to plot the ROC curve
 def plot_roc_curve(model, X_test, y_test, path=None):
@@ -33,13 +36,15 @@ def plot_roc_curve(model, X_test, y_test, path=None):
     plt.ylabel('True Positive Rate')
     plt.title('Receiver Operating Characteristic')
     plt.legend(loc='lower right')
+    if path:
+        # Create the directory if it doesn't exist
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        plt.savefig(path)
     plt.show()
 
-    if path:
-        plt.savefig(path)
 
 # function to plot the precision-recall curve
-def plot_precision_recall_curve(model, X_test, y_test):
+def plot_precision_recall_curve(model, X_test, y_test, path=None):
     ''' Plot the precision-recall curve
     Args:
         model (sklearn estimator): Trained model.
@@ -52,20 +57,23 @@ def plot_precision_recall_curve(model, X_test, y_test):
     
     # calculate the precision-recall curve
     precision, recall, thresholds = precision_recall_curve(y_test, y_pred_prob)
-    
+
     # plot the precision-recall curve
     plt.figure()
     plt.plot(recall, precision, color='darkorange', lw=2, label='Precision-Recall curve')
+    plt.plot([0, 1], [0.5, 0.5], color='navy', lw=2, linestyle='--', label='Random guess')
     plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])
+    plt.ylim([0.0, 1.0])
     plt.xlabel('Recall')
     plt.ylabel('Precision')
     plt.title('Precision-Recall curve')
     plt.legend(loc='lower left')
+    if path:
+        # Create the directory if it doesn't exist
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        plt.savefig(path)
     plt.show()
 
-    if path:
-        plt.savefig(path)
 
 # function to plot the confusion matrix
 def plot_confusion_matrix(model, X_test, y_test, path=None):
@@ -81,16 +89,19 @@ def plot_confusion_matrix(model, X_test, y_test, path=None):
     
     # calculate confusion matrix
     cm = confusion_matrix(y_test, y_pred)
-    
+
     # plot the confusion matrix
-    plt.figure()
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
+    fig, ax = plt.subplots(figsize=(6, 4))
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['No', 'Yes'])
+    disp.plot(cmap='Blues', ax=ax)
     plt.xlabel('Predicted labels')
     plt.ylabel('True labels')
-    plt.show()
-
+    plt.title('Confusion Matrix')
     if path:
+        # Create the directory if it doesn't exist
+        os.makedirs(os.path.dirname(path), exist_ok=True)
         plt.savefig(path)
+    plt.show()
 
 
 # function to plot feature importance
@@ -107,13 +118,19 @@ def plot_feature_importance(model, X, path=None):
     # create dataframe
     feature_importance_df = pd.DataFrame({'feature': X.columns, 'importance': feature_importance})
     feature_importance_df = feature_importance_df.sort_values(by='importance', ascending=False)
-    
-    # plot feature importance
-    plt.figure()
-    sns.barplot(x='importance', y='feature', data=feature_importance_df)
-    plt.title('Feature Importance')
-    plt.show()
 
+    # plot feature importance
+    fig, ax = plt.subplots(figsize=(6, 4))
+    sns.barplot(x='importance', y='feature', data=feature_importance_df.iloc[:10])
+    plt.title('Feature Importance')
+    plt.xlabel('Importance')
+    plt.ylabel('Features')
+    plt.xticks(fontsize=6)
+    plt.yticks(fontsize=6)
+    plt.tight_layout() 
     if path:
+        # Create the directory if it doesn't exist
+        os.makedirs(os.path.dirname(path), exist_ok=True)
         plt.savefig(path)
+    plt.show()
 

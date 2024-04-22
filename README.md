@@ -25,4 +25,5 @@ To train the decision tree model, run the following command from the project dir
 ```bash
 python scripts/tree_script.py
 ```
-This script will train the decision tree model and save the model to the models directory.
+
+This script will train the decision tree model and save confusion matrix, feature importance, roc curve, and precision-recall curve plots in the reports/figures directory.

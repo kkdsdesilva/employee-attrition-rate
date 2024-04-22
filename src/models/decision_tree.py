@@ -4,7 +4,7 @@
 from sklearn.tree import DecisionTreeClassifier
 
 # function to train the model
-def train_model(X, y, criterion='gini', max_depth=None, random_state=0):
+def train_model(X, y, criterion='gini', max_depth=None, random_state=0, min_samples_split=2, min_samples_leaf=1):
     ''' Train a decision tree model
     Args:
         X (pandas.DataFrame): Dataframe containing the data.
