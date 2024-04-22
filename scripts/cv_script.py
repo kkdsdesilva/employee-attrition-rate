@@ -10,6 +10,7 @@ from data.preprocessing import one_hot_encode
 from models.decision_tree import train_model
 from models.evaluation import evaluate_model
 from models.cross_validation import cv 
+from models.save import save_model
 
 # main function
 def main():
@@ -35,6 +36,7 @@ def main():
 
     # print cross-validation results
     print(pd.DataFrame(cv_results))
+    
 
 # run the main function
 if __name__ == '__main__':

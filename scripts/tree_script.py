@@ -24,7 +24,7 @@ def main():
     data = one_hot_encode(data, one_hot_cols, drop_first=False)
 
     # split data
-    X_train, X_test, y_train, y_test = split_data(data, target='Attrition', test_size=0.3)
+    X_train, X_test, y_train, y_test = split_data(data, target='Attrition', test_size=0.2)
 
     # train model
     model = train_model(X_train, y_train, max_depth=15, random_state=0)
