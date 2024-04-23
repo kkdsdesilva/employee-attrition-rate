@@ -3,6 +3,7 @@
 To replicate the results of this project, please follow the instructions below.
 
 ## Installation
+
 To install the dependencies for this project, please refer to the requirements.txt file. It contains a list of all the required packages and their versions.
 
 You can install the dependencies by running the following command:
@@ -15,6 +16,19 @@ To install this project in editable mode, navigate to the project directory and 
 ```bash
 pip install -e .
 ```
+
+This will enable the user to import modules from the src directory.
+
+## Data Collection and Preprocessing
+
+The data used for this project is stored in the data/raw directory. The data consists of employee information, employee and manager survey responses, in and out times. To preprocess the data, run the following command:
+
+```bash
+python scripts/preprocess_script.py
+```
+
+This script will preprocess the raw data and save the cleaned data in the data/processed directory.
+
 
 ## Model Training and Hyperparameter Tuning
 
