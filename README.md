@@ -18,11 +18,11 @@ pip install -e .
 
 ## Model Training and Hyperparameter Tuning
 
-We used two models for this project: a simple logistic regression model, a more robust decision tree model and a random forest model. Since both decision tree and random forest models outperformed the logistic regression model, we will focus on the decision tree and random forest models.
+We used 3 models for this project: a simple logistic regression model, a more robust decision tree model and a random forest model. Since both decision tree and random forest models outperformed the logistic regression model, we will focus on the decision tree and random forest models.
 
 ### Decision Tree Model
 
-To hyperparameter tune the decision tree model, run the following command:
+To tune hyperparameters for the decision tree model, run the following command:
 
 ```bash
 python scripts/tree_tuning_script.py
@@ -40,7 +40,7 @@ This script will train the decision tree model and save confusion matrix, featur
 
 ### Random Forest Model
 
-To hyperparameter tune the random forest model, run the following command:
+To tune hyperparameters for the random forest model, run the following command:
 
 ```bash
 python scripts/forest_tuning_script.py
