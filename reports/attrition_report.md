@@ -22,21 +22,41 @@ Before diving into the predictive modeling, we performed exploratory data analys
 
 This first thing to notice is the imbalance in the target variable, with a higher proportion of employees who stayed compared to those who left. This imbalance can affect the performance of the predictive model if not addressed properly. So we used performance metrics such as precision, recall, and F1 score to evaluate the model's performance accurately. 
 
-![Attrition Count](figures/attrition_count.png)
+<img src='figures/attrition_count.png' width='50%'>
+
+The f1 score is a harmonic mean of precision and recall, given by the following formula:
+$$ F1 = 2 * \frac{precision * recall}{precision + recall} .$$
 
 ### Key Findings
 
+Both models (decision tree and random forest) performed well in terms of f1 score, recall, and precision. These predictive models can be used to anticipate employee attrition and identify the key factors driving it and following gives a brief overview of the performance metrics of the models:
+
+#### Decision Tree Model
+Confusion Matrix:
+
+<img src='figures/tree_confusion_matrix.png' width='50%'>
+
+Roc Curve and precision-recall curve:
+<p float="left">
+  <img src="figures/tree_roc_curve.png" width='40%' />
+  <img src="figures/tree_precision_recall_curve.png" width='40%' />
+</p>
+
+Both the ROC curve and precision-recall curve show that the decision tree model performs well in distinguishing between employees who stayed and those who left.
+
+#### Random Forest Model
+Confusion Matrix:
+
+<img src='figures/forest_confusion_matrix.png' width='50%'>
+
+Roc Curve and precision-recall curve:
+
+<p float="left">
+  <img src="figures/forest_roc_curve.png" width='40%' />
+  <img src="figures/forest_precision_recall_curve.png" width='40%' />
+</p>
+
+These figures show that the random forest model slightly outperforms the decision tree model in terms of precision, recall, and f1 score. However, the difference in performance between the two models is not significant, and both models can effectively predict employee attrition. 
 
 
 
-### Model Development
-For the predictive modeling, we employed various machine learning algorithms such as logistic regression, decision trees, random forests, and gradient boosting. We trained these models on a subset of the data and evaluated their performance using appropriate metrics such as accuracy, precision, recall, and F1 score. The best-performing model was then selected for further analysis.
-
-### Model Interpretation
-After developing the predictive model, we focused on interpreting its results to gain insights into the key factors driving attrition. This involved analyzing the coefficients or feature importances of the model to identify the most influential variables. Additionally, we conducted hypothesis tests or statistical analyses to validate the significance of these variables.
-
-### Recommendations
-Based on the insights gained from the analysis, we provide recommendations to address the issue of attrition within ABC. These recommendations may include changes to HR policies, employee engagement initiatives, career development programs, or targeted interventions for specific employee segments.
-
-### Conclusion
-In conclusion, this analysis provides a comprehensive understanding of employee attrition within ABC and offers actionable insights to mitigate this issue. By leveraging data-driven approaches and predictive modeling, organizations can proactively address attrition and improve employee retention, leading to enhanced productivity and financial performance.

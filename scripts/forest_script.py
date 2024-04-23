@@ -50,6 +50,7 @@ def main():
     # plot precision-recall curve
     plot_precision_recall_curve(model, X_test, y_test, root_dir+'/reports/figures/forest_precision_recall_curve.png')
 
+
 # run the main function
 if __name__ == '__main__':
     main()
