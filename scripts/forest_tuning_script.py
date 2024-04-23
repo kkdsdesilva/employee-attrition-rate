@@ -1,9 +1,9 @@
-# script for hyperparameter tuning the decision tree model
+# script for hyperparameter tuning the random forest model
 
 # import libraries
 import pandas as pd
 import os
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
 
 # import user-defined functions
@@ -31,11 +31,12 @@ def main():
     X = data.drop('Attrition', axis=1) # features
     y = data['Attrition'] # target variable
 
-    # decision tree model
-    model = DecisionTreeClassifier(random_state=0)
+    # random forest model
+    model = RandomForestClassifier(random_state=0)
 
     # hyperparameters
-    params = {'max_depth': [5, 10, 15, 20, 25, 30, 35, 40],
+    params = {'n_estimators': [50, 100, 150, 200],
+              'max_depth': [5, 10, 15, 20, 25, 30, 35, 40],
               'min_samples_split': [2, 5, 10, 15],
               'min_samples_leaf': [1, 2, 5, 10]}
     
@@ -49,7 +50,7 @@ def main():
     results = pd.DataFrame(grid_search.cv_results_)
 
     # save results
-    results.to_csv(root_dir + '/metrics/grid_search_results.csv', index=False) # save the results
+    results.to_csv(root_dir + '/metrics/forest_grid_search_results.csv', index=False)
 
     # best hyperparameters
     print('Best hyperparameters:', grid_search.best_params_)
@@ -57,10 +58,8 @@ def main():
 
     # save the best model
     best_model = grid_search.best_estimator_
-    save_model(best_model, root_dir + '/models/grid_search/decision_tree_best.pkl')
-
+    save_model(best_model, root_dir + '/models/forest_grid_search/best_model.pkl')
 
 # run the main function
 if __name__ == '__main__':
     main()
-
