@@ -22,7 +22,7 @@ Before diving into the predictive modeling, we performed exploratory data analys
 
 This first thing to notice is the imbalance in the target variable, with a higher proportion of employees who stayed compared to those who left. This imbalance can affect the performance of the predictive model if not addressed properly. So we used performance metrics such as precision, recall, and F1 score to evaluate the model's performance accurately. 
 
-![Attrition Analysis](figures/attrition_count.png)
+![Attrition Count](figures/attrition_count.png)
 
 ### Key Findings
 
