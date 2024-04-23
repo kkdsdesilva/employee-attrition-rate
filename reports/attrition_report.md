@@ -59,7 +59,13 @@ These figures show that the random forest model slightly outperforms the decisio
 
 ### Feature Importance
 
-Both models provide insights into the key factors driving employee attrition. The top features contributing to attrition include:
+Both models provide insights into the key factors driving employee attrition. Following figure shows the feature importance plots for the decision tree and random forest models:
 
+<p float="left">
+  <img src="figures/tree_feature_importance.png" width='40%' />
+  <img src="figures/forest_feature_importance.png" width='40%' />
+</p>
 
+Eventhoug the feature importance plots differ slightly between the two models, some common factors emerge as significant contributors to attrition, such as monthly income, job satisfaction, and years at the company. These insights can guide HR policies and interventions to address attrition proactively.
 
+Both models 
