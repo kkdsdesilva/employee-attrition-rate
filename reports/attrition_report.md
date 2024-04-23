@@ -57,5 +57,9 @@ Roc Curve and precision-recall curve:
 
 These figures show that the random forest model slightly outperforms the decision tree model in terms of precision, recall, and f1 score. However, the difference in performance between the two models is not significant, and both models can effectively predict employee attrition. 
 
+### Feature Importance
+
+Both models provide insights into the key factors driving employee attrition. The top features contributing to attrition include:
+
 
 

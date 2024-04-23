@@ -38,7 +38,7 @@ def main():
     model = train_model(X_train, y_train, **params)
 
     # plot feature importance
-    plot_feature_importance(model, X_train, root_dir+'/reports/figures/tree_feature_importance.png')
+    plot_feature_importance(model, X_train, root_dir+'/reports/figures/tree_feature_importance.png', title='Decision Tree Feature Importance')
 
     # plot confusion matrix
     plot_confusion_matrix(model, X_test, y_test, root_dir+'/reports/figures/tree_confusion_matrix.png')

@@ -39,7 +39,7 @@ def main():
     model = train_model(X_train, y_train, **params)
 
     # plot feature importance
-    plot_feature_importance(model, X_train, root_dir+'/reports/figures/forest_feature_importance.png')
+    plot_feature_importance(model, X_train, root_dir+'/reports/figures/forest_feature_importance.png', title='Random Forest Feature Importance')
 
     # plot confusion matrix
     plot_confusion_matrix(model, X_test, y_test, root_dir+'/reports/figures/forest_confusion_matrix.png')

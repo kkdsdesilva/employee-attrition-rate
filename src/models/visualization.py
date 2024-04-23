@@ -106,7 +106,7 @@ def plot_confusion_matrix(model, X_test, y_test, path=None):
 
 
 # function to plot feature importance
-def plot_feature_importance(model, X, path=None):
+def plot_feature_importance(model, X, path=None, title='Feature Importance'):
     ''' Plot feature importance
     Args:
         model (sklearn estimator): Trained model.
@@ -123,7 +123,7 @@ def plot_feature_importance(model, X, path=None):
     # plot feature importance
     fig, ax = plt.subplots(figsize=(6, 4))
     sns.barplot(x='importance', y='feature', data=feature_importance_df.iloc[:10])
-    plt.title('Feature Importance')
+    plt.title(title)
     plt.xlabel('Importance')
     plt.ylabel('Features')
     plt.xticks(fontsize=6)
