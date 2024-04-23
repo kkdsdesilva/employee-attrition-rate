@@ -16,14 +16,43 @@ To install this project in editable mode, navigate to the project directory and 
 pip install -e .
 ```
 
-## Model Training
+## Model Training and Hyperparameter Tuning
 
-We used two models for this project: a simple logistic regression model and a more robust decision tree model. The decision tree model performed better than the logistic regression model.
+We used two models for this project: a simple logistic regression model, a more robust decision tree model and a random forest model. Since both decision tree and random forest models outperformed the logistic regression model, we will focus on the decision tree and random forest models.
 
-To train the decision tree model, run the following command from the project directory:
+### Decision Tree Model
+
+To hyperparameter tune the decision tree model, run the following command:
+
+```bash
+python scripts/tree_tuning_script.py
+```
+
+This script will perform hyperparameter tuning using grid search and save the best model in the models directory and save the grid search results in the metrics directory.
+
+To train and evaluate the decision tree model, run the following command:
 
 ```bash
 python scripts/tree_script.py
 ```
 
 This script will train the decision tree model and save confusion matrix, feature importance, roc curve, and precision-recall curve plots in the reports/figures directory.
+
+### Random Forest Model
+
+To hyperparameter tune the random forest model, run the following command:
+
+```bash
+python scripts/forest_tuning_script.py
+```
+
+This script will perform hyperparameter tuning using grid search and save the best model in the models directory and save the grid search results in the metrics directory.
+
+To train and evaluate the random forest model, run the following command:
+
+```bash
+python scripts/forest_script.py
+``` 
+
+This script will train the random forest model and save confusion matrix, feature importance, roc curve, and precision-recall curve plots in the reports/figures directory.
+

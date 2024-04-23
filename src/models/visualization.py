@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import roc_curve, auc, confusion_matrix, precision_recall_curve
 from sklearn.metrics import ConfusionMatrixDisplay, PrecisionRecallDisplay
+from sklearn.manifold import TSNE
 
 # function to plot the ROC curve
 def plot_roc_curve(model, X_test, y_test, path=None):
@@ -134,3 +135,27 @@ def plot_feature_importance(model, X, path=None):
         plt.savefig(path)
     plt.show()
 
+# function to plot t-SNE
+def plot_tsne(X, y, path=None):
+    ''' Plot t-SNE
+    Args:
+        X (pandas.DataFrame): Dataframe containing the features.
+        y (pandas.Series): Series containing the target variable.
+        '''
+    
+    # t-SNE
+    tsne = TSNE(n_components=2, random_state=6)
+    X_tsne = tsne.fit_transform(X)
+    
+    # create dataframe
+    tsne_df = pd.DataFrame({'X': X_tsne[:, 0], 'Y': X_tsne[:, 1], 'label': y})
+    
+    # plot t-SNE
+    fig, ax = plt.subplots(figsize=(6, 4))
+    sns.scatterplot(x='X', y='Y', hue='label', data=tsne_df, palette='viridis')
+    plt.title('t-SNE')
+    if path:
+        # Create the directory if it doesn't exist
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        plt.savefig(path)
+    plt.show()
