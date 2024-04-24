@@ -60,6 +60,7 @@ def main():
     best_model = grid_search.best_estimator_
     save_model(best_model, root_dir + '/models/forest_grid_search/best_model.pkl')
 
+
 # run the main function
 if __name__ == '__main__':
     main()

@@ -27,7 +27,7 @@ The data used for this project is stored in the data/raw directory. The data con
 python scripts/preprocess_script.py
 ```
 
-This script will preprocess the raw data and save the cleaned data in the data/processed directory.
+This script will preprocess the raw data and save the cleaned data in the data/processed directory. The preprocessing steps include handling missing values, encoding categorical variables, and creating new features. Using in time and out time, we calculated the total hours worked by each employee and the average hours worked per day and added this as a new features.
 
 
 ## Model Training and Hyperparameter Tuning

@@ -28,7 +28,7 @@ The f1 score is a harmonic mean of precision and recall, given by the following 
 
 ### Key Findings
 
-Both models (decision tree and random forest) performed well in terms of f1 score, recall, and precision. These predictive models can be used to anticipate employee attrition and identify the key factors driving it and following gives a brief overview of the performance metrics of the models:
+Both models (decision tree and random forest) performed well in terms of f1 score, recall, and precision, but the random forest model outperformed the decision tree model slightly. These predictive models can be used to anticipate employee attrition and identify the key factors driving it and following gives a brief overview of the performance metrics of the two models:
 
 #### Decision Tree Model
 Confusion Matrix:
@@ -66,6 +66,7 @@ Both models provide insights into the key factors driving employee attrition. Fo
   <img src="figures/forest_feature_importance.png" width='40%' />
 </p>
 
-Eventhoug the feature importance plots differ slightly between the two models, some common factors emerge as significant contributors to attrition, such as monthly income, job satisfaction, and years at the company. These insights can guide HR policies and interventions to address attrition proactively.
+Eventhoug the feature importance plots differ slightly between the two models, some common factors emerge as significant contributors to attrition, such as average time spent in the office, monthly income, job satisfaction, age and years at the company. These insights can guide HR policies and interventions to address attrition proactively. Both models show that average time spent every day in the office is the most important factor contributing to attrition. This suggests that work-life balance and flexible work arrangements can play a crucial role in employee retention. Both models also highlight the importance of monthly income, total working years, and age as key factors influencing attrition. And this suggests that competitive compensation packages, career growth opportunities, and age-appropriate benefits can help retain employees and reduce attrition rates.
 
-Both models 
+Also, both models show that percentage salary hike and job satisfaction are significant factors influencing attrition. This suggests that salary-related factors play a crucial role in employee retention and that competitive compensation packages and performance-based incentives can help reduce attrition rates.
+

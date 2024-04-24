@@ -32,7 +32,7 @@ def main():
     X_train, X_test, y_train, y_test = split_data(data, target='Attrition', test_size=0.2)
 
     # best hyperparameters
-    params = {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2}
+    params = {'max_depth': 25, 'min_samples_leaf': 1, 'min_samples_split': 2}
 
     # train model
     model = train_model(X_train, y_train, **params)

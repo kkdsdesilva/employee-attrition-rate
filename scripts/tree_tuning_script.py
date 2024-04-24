@@ -22,7 +22,7 @@ def main():
     
     # load data
     data = load_data(type='general', preprocessed=True)
-
+    
     # one hot encode for categorical variables
     one_hot_cols = ['Department', 'EducationField', 'Gender', 'JobRole', 'MaritalStatus']
     data = one_hot_encode(data, one_hot_cols, drop_first=False)
@@ -49,7 +49,7 @@ def main():
     results = pd.DataFrame(grid_search.cv_results_)
 
     # save results
-    results.to_csv(root_dir + '/metrics/tree_grid_search_results.csv', index=False)
+    results.to_csv(root_dir + '/metrics/tree_grid_search_results.csv', index=False) # save the results
 
     # best hyperparameters
     print('Best hyperparameters:', grid_search.best_params_)
