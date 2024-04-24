@@ -24,7 +24,7 @@ This first thing to notice is the imbalance in the target variable, with a highe
 
 <img src='figures/attrition_count.png' width='50%'>
 
-The f1 score is a harmonic mean of precision and recall, given by the following formula: $F1 = 2 * \frac{precision * recall}{precision + recall}$.
+The f1 score is a harmonic mean of precision and recall, given by the following formula: $$F1 = 2 * \frac{precision * recall}{precision + recall}.$$
 
 ### Key Findings
 
