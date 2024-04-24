@@ -55,7 +55,7 @@ Roc Curve and precision-recall curve:
   <img src="figures/forest_precision_recall_curve.png" width='40%' />
 </p>
 
-These figures show that the random forest model slightly outperforms the decision tree model in terms of precision, recall, and f1 score. However, the difference in performance between the two models is not significant, and both models can effectively predict employee attrition. 
+These figures show that the random forest model performs almost perfectly in distinguishing between employees who stayed and those who left. The ROC curve and precision-recall curve show that the random forest model has high true positive rates and low false positive rates, indicating that it can accurately predict employee attrition. Even though the random forest model outperformed the decision tree model, both models provide valuable insights into the key factors driving employee attrition.
 
 ### Feature Importance
 

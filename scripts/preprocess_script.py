@@ -58,7 +58,7 @@ def main():
     data = ordinal_encode(data, ordinal_cols, order)
 
     # add the time spent column
-    data['time_spent'] = mean_time
+    data['WorkTimePerDay'] = mean_time
 
     # save the data
     data.to_csv(root_dir + '/data/preprocessed_data/general_data.csv', index=False)
