@@ -1,4 +1,4 @@
-# Technical Assessment
+# Canonical Technical Assessment
 
 To replicate the results of this project, please follow the instructions below.
 

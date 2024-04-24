@@ -25,6 +25,23 @@ This first thing to notice is the imbalance in the target variable, with a highe
 <img src='figures/attrition_count.png' width='50%'>
 
 The f1 score is a harmonic mean of precision and recall, given by the following formula: $$F1 = 2 * \frac{\rm{precision} * \rm{recall}}{\rm{precision} + \rm{recall}}.$$
+Precision gives the ratio of true positives to the sum of true positives and false positives, while recall gives the ratio of true positives to the sum of true positives and false negatives. The f1 score provides a balanced measure of the model's performance, considering both precision and recall.
+
+### Inintial Data Analysis
+Initial data analysis revealed several key insights into how attrition might be influenced by various factors such age, salary, daily work hours and percentage salary increase. These insights gives us an initial understanding of the dataset and help us identify potential predictors of attrition before delving into the predictive modeling phase.
+
+<p float="left">
+  <img src="figures/age.png" width='40%' />
+  <img src="figures/income.png" width='40%' />
+</p>
+<p float="left">
+  <img src="figures/worktimeperday.png" width='40%' />
+  <img src="figures/salaryhike.png" width='40%' />
+</p>
+
+This analysis provides a foundation for developing predictive models to anticipate employee attrition and identify the key factors driving it. When you look at the plots above, you can see that the age distribution is skewed to the right, with a higher proportion of younger employees. The monthly income distribution is left-skewed, with most employees earning between 20000 and 80000. The average daily work hours distribution is normally distributed, with most employees working between 6 and 10 hours per day. The percentage salary hike distribution is right-skewed, with most employees receiving a salary hike between 10% and 20%.
+
+The percentage salary hike is the only counterintuitive variable in the dataset, as one would expect the mean  salary hike of employees who stayed at the company to be higher than those who left. However, the data shows that employees who left the company received a higher percentage salary hike on average compared to those who stayed. This could be due to various reasons, such as employees leaving due to dissatisfaction with their current salary which in turn leads to a higher percentage salary hikes.
 
 ### Key Findings
 
@@ -59,18 +76,20 @@ These figures show that the random forest model performs almost perfectly in dis
 
 ### Feature Importance
 
-Both models provide insights into the key factors driving employee attrition. Following figure shows the feature importance plots for the decision tree and random forest models:
+The feature importance plots for the decision tree and random forest models offer insights into the factors driving employee attrition. Both models converge on common factors contributing significantly to attrition, as depicted below:
 
 <p float="left">
   <img src="figures/tree_feature_importance.png" width='40%' />
   <img src="figures/forest_feature_importance.png" width='40%' />
 </p>
 
-Although the feature importance plots exhibit slight variations between the two models, they converge on several common factors that significantly contribute to attrition. Notably, attributes such as average time spent in the office, monthly income, job satisfaction, age, and tenure at the company emerge as influential drivers of attrition. These insights offer valuable guidance for HR strategies and interventions aimed at proactively addressing attrition.
+While slight variations exist between the models, they identify consistent drivers of attrition. Notably, attributes such as average time spent in the office, monthly income, job satisfaction, age, and tenure at the company emerge as influential factors. These insights inform HR strategies to proactively address attrition by focusing on these key drivers.
 
-Both models underscore the paramount importance of the average time spent daily in the office as the foremost factor impacting attrition. This underscores the pivotal role of work-life balance and flexible work arrangements in fostering employee retention. Moreover, the models emphasize the significance of monthly income, total tenure, and age in influencing attrition, indicating that competitive compensation packages, opportunities for career advancement, and age-tailored benefits can aid in retaining employees and curbing attrition rates.
+Both models highlight the paramount importance of average time spent daily in the office as the leading factor impacting attrition. This underscores the significance of promoting work-life balance and flexible arrangements to retain employees. Additionally, emphasis is placed on monthly income, total tenure, and age, indicating the importance of competitive compensation and age-tailored benefits for retention.
 
-Furthermore, both models highlight the impact of factors such as percentage salary hike and job satisfaction on attrition, underscoring the critical role of salary-related considerations in employee retention. This underscores the potential of competitive compensation packages and performance-based incentives to mitigate attrition rates effectively.
+In the initial data analysis, we observed that the percentage salary hike was higher for employees who left compared to those who stayed. This counterintuitive finding underscores the importance of aligning compensation strategies with employee expectations and industry standards to prevent attrition. By leveraging these insights, ABC can develop targeted retention strategies, enhance employee engagement, and foster a supportive work environment to mitigate attrition risks effectively.
+
+Furthermore, the initial data analysis revealed that the time spent daily in the office is slightly higher for employees who left compared to those who stayed. This finding underscores the importance of promoting work-life balance, flexible work arrangements, and wellness programs to enhance employee satisfaction and retention. By addressing these key factors driving attrition, ABC can develop data-driven HR strategies, optimize employee engagement, and reduce attrition rates effectively.
 
 
 ## 4. Recommendations
