@@ -20,7 +20,7 @@ def main():
 
     # one hot encode for categorical variables
     one_hot_cols = ['Department', 'EducationField', 'Gender', 'JobRole', 'MaritalStatus']
-    data = one_hot_encode(data, one_hot_cols)
+    data = one_hot_encode(data, one_hot_cols, drop_first=True)
     
     # split data
     X_train, X_test, y_train, y_test = split_data(data, target='Attrition')
