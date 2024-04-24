@@ -37,17 +37,24 @@ Initial data analysis revealed several key insights into how attrition might be 
 <p float="left">
   <img src="figures/worktimeperday.png" width='40%' />
   <img src="figures/salaryhike.png" width='40%' />
+  <img src="figures/totworkyears.png" width='40%' />
 </p>
 
-This analysis provides a foundation for developing predictive models to anticipate employee attrition and identify the key factors driving it. When you look at the plots above, you can see that the age distribution is skewed to the right, with a higher proportion of younger employees. The monthly income distribution is left-skewed, with most employees earning between 20000 and 80000. The average daily work hours distribution is normally distributed, with most employees working between 6 and 10 hours per day. The percentage salary hike distribution is right-skewed, with most employees receiving a salary hike between 10% and 20%.
+This analysis provides a foundation for developing predictive models to anticipate employee attrition and identify the key factors driving it. When you look at the plots above, you can see that the age distribution is skewed to the right, with a higher proportion of younger employees. The monthly income distribution is left-skewed, with most employees earning between 20000 and 80000. The average daily work hours distribution is normally distributed, with most employees working between 6 and 10 hours per day. The percentage salary hike distribution is right-skewed, with most employees receiving a salary hike between 10% and 20%. The total working years distribution is left-skewed for both employees who stayed and those who left, with most employees having worked between 0 and 20 years.
+
+All there insights are crucial in understanding the dataset and identifying potential predictors of attrition.
+
+Age distributions provide insights into the demographic composition of the workforce, with a higher proportion of younger employees. This shows that age of the employees who left the company is slightly lower than those who stayed. This could indicate that younger employees are more likely to leave the company compared to older employees. The monthly income distribution shows that employees who left the company had a slightly lower monthly income compared to those who stayed. This could be due to various reasons, such as employees leaving for higher-paying jobs or dissatisfaction with their current salary. The average daily work hours distribution shows that employees who left the company spent slightly more time in the office compared to those who stayed. This could indicate that employees who work longer hours are more likely to leave the company. Also, the total working years distribution shows that employees who left the company had slightly fewer total working years compared to those who stayed. This could indicate that employees who have worked for a shorter period are more likely to leave the company.
 
 The percentage salary hike is the only counterintuitive variable in the dataset, as one would expect the mean  salary hike of employees who stayed at the company to be higher than those who left. However, the data shows that employees who left the company received a higher percentage salary hike on average compared to those who stayed. This could be due to various reasons, such as employees leaving due to dissatisfaction with their current salary which in turn leads to a higher percentage salary hikes.
 
-### Key Findings
+### Modelling Attrition Prediction
 
-Both models (decision tree and random forest) performed well in terms of f1 score, recall, and precision, but the random forest model outperformed the decision tree model slightly. These predictive models can be used to anticipate employee attrition and identify the key factors driving it and following gives a brief overview of the performance metrics of the two models:
+We used three models for this project: a logistic regression model, a decision tree model and a random forest model. Both decision tree and random forest models outperformed the logistic regression model, so we focused on the decision tree and random forest models. We used hyperparameter tuning to optimize the models and evaluated their performance using metrics such as f1 score, recall, and precision.
 
-#### Decision Tree Model
+Both decision tree and random forest performed well in terms of f1 score, recall, and precision, but the random forest model outperformed the decision tree model slightly. These predictive models can be used to anticipate employee attrition and identify the key factors driving it and following gives a brief overview of the performance metrics of the two models:
+
+#### Decision Tree Model:
 Confusion Matrix:
 
 <img src='figures/tree_confusion_matrix.png' width='50%'>
@@ -60,7 +67,7 @@ Roc Curve and precision-recall curve:
 
 Both the ROC curve and precision-recall curve show that the decision tree model performs well in distinguishing between employees who stayed and those who left.
 
-#### Random Forest Model
+#### Random Forest Model:
 Confusion Matrix:
 
 <img src='figures/forest_confusion_matrix.png' width='50%'>
@@ -83,7 +90,7 @@ The feature importance plots for the decision tree and random forest models offe
   <img src="figures/forest_feature_importance.png" width='40%' />
 </p>
 
-While slight variations exist between the models, they identify consistent drivers of attrition. Notably, attributes such as average time spent in the office, monthly income, job satisfaction, age, and tenure at the company emerge as influential factors. These insights inform HR strategies to proactively address attrition by focusing on these key drivers.
+While slight variations exist between the models, they identify consistent drivers of attrition. Notably, attributes such as average time spent in the office, monthly income, age, total working years and tenure at the company emerge as influential factors. These insights inform HR strategies to proactively address attrition by focusing on these key drivers.
 
 Both models highlight the paramount importance of average time spent daily in the office as the leading factor impacting attrition. This underscores the significance of promoting work-life balance and flexible arrangements to retain employees. Additionally, emphasis is placed on monthly income, total tenure, and age, indicating the importance of competitive compensation and age-tailored benefits for retention.
 
